@@ -1,0 +1,189 @@
+/* General reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body and overall container */
+body {
+    font-family: 'Arial', sans-serif;
+    background: #f1f1f1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+}
+
+/* Container with image and form sections */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    width: 80%;
+    max-width: 1200px;
+    height: 80%;
+}
+
+/* Image section */
+.image-section {
+    flex: 1;
+    height: 100%;
+    background-image: url('https://via.placeholder.com/600x800'); /* Replace with your own image */
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.login-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.8;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.image-section:hover .login-image {
+    opacity: 1;
+}
+
+/* Form section */
+.form-section {
+    flex: 1;
+    padding: 40px;
+    animation: slideIn 1s ease-out;
+    max-width: 400px;
+    background-color: #fff;
+    border-radius: 8px;
+}
+
+/* Animation for form appearance */
+@keyframes slideIn {
+    from {
+        transform: translateX(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+h2 {
+    text-align: center;
+    color: #FCAC2B;
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+/* Styling input groups */
+.input-group {
+    margin-bottom: 20px;
+}
+
+label {
+    font-size: 14px;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    font-size: 14px;
+    border-radius: 6px;
+    border: 2px solid #ddd;
+    background-color: #fafafa;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+/* Focus state */
+input:focus {
+    border-color: #FCAC2B;
+    background-color: #e8f5e9;
+    outline: none;
+}
+
+/* Button styling */
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: #FCAC2B;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Hover effect for button */
+button:hover {
+    background-color: #f39c12;
+    transform: scale(1.05);
+}
+
+/* Error message styling */
+#error-message {
+    text-align: center;
+    font-size: 14px;
+    margin-top: 15px;
+    font-weight: bold;
+    color: red;
+}
+
+/* Link text styling */
+.link-text {
+    text-align: center;
+    font-size: 14px;
+    margin-top: 20px;
+}
+
+.link-text a {
+    color: #FCAC2B;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.link-text a:hover {
+    text-decoration: underline;
+}
+
+/* Responsiveness */
+@media (max-width: 800px) {
+    .container {
+        flex-direction: column;
+        width: 100%;
+        max-width: none;
+    }
+
+    .image-section {
+        height: 300px;
+    }
+
+    .form-section {
+        padding: 30px;
+    }
+
+    h2 {
+        font-size: 22px;
+    }
+
+    .input-group {
+        margin-bottom: 15px;
+    }
+
+    button {
+        font-size: 14px;
+        padding: 10px;
+    }
+}
