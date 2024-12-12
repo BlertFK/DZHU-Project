@@ -126,7 +126,7 @@ body.scroll {
 }
 
 .title {
-  font-family: "Abril Fatface";
+  font-family: "Roboto", sans-serif;
   font-size: 100px;
   line-height: 100px;
   width: 90%;
@@ -134,7 +134,7 @@ body.scroll {
 
 .caption {
   display: block;
-  font-family: "Open Sans";
+  font-family: "Roboto", sans-serif;
   text-transform: uppercase;
   letter-spacing: 2px;
   margin-top: 15px;
@@ -175,7 +175,7 @@ body.scroll {
 
 .nav ul li a {
   color: #fff;
-  font-family: "Open Sans";
+  font-family: "Roboto", sans-serif;
   text-transform: uppercase;
   letter-spacing: 5px;
   font-size: 12px;
@@ -241,7 +241,7 @@ body.scroll {
 
 .mobile-menu ul li a {
   color: #fff;
-  font-family: "Open Sans";
+  font-family: "Roboto", sans-serif;
   text-transform: uppercase;
   letter-spacing: 5px;
   font-size: 12px;
@@ -364,7 +364,7 @@ body.scroll {
   color: #fff;
   left: 115px;
   bottom: 25px;
-  font-family: "Open Sans";
+  font-family: "Roboto", sans-serif;
 }
 
 .view p {
@@ -416,7 +416,7 @@ body {
 }
 
 .welcome {
-  font-family: "Open Sans";
+  font-family: "Roboto", sans-serif;
 
   text-align: center;
   margin: 0 auto;
@@ -441,7 +441,7 @@ body {
   position: absolute;
   top: 20px;
   left: 20px;
-  font-family: "Open Sans";
+  font-family: "Roboto", sans-serif;
   color: #fff;
   z-index: 1000;
   letter-spacing: 3px;
@@ -698,7 +698,7 @@ body {
   margin-top: 0;
   margin-bottom: 5px;
   /*Text*/
-  font-family: "Open Sans";
+  font-family: "Roboto", sans-serif;
   font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 5px;
@@ -709,7 +709,7 @@ body {
   margin: 0;
   margin-top: 15px;
   /*Text*/
-  font-family: "Open Sans";
+  font-family: "Roboto", sans-serif;
   font-size: 12px;
   font-weight: 300;
   text-transform: uppercase;
@@ -721,7 +721,7 @@ body {
   margin: 0;
   margin-top: 15px;
   /*Text*/
-  font-family: "Open Sans";
+  font-family: "Roboto", sans-serif;
   font-size: 12px;
   font-weight: 300;
 }
