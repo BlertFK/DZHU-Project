@@ -101,6 +101,10 @@ ul li a.active::after {
     display: none;
 }
 
+.title-course {
+    text-decoration: none;
+}
+
 
 @media screen and (max-width: 768px) {
     nav {
