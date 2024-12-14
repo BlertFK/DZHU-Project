@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Users</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="logo">Admin Dashboard</div>
+            <ul class="nav">
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="users.html" class="active">Users</a></li>
+                <li><a href="settings.html">Settings</a></li>
+                <li><a href="reports.html">Reports</a></li>
+            </ul>
+        </aside>
+
+        <main class="main-content">
+            <header class="header">
+                <button id="sidebarToggle" class="toggle-btn">&#9776;</button>
+                <div class="user">
+                    <span>Welcome, Admin!</span>
+                    <img src="https://t3.ftcdn.net/jpg/02/43/12/34/360_F_243123463_zTooub557xEWABDLk0jJklDyLSGl2jrr.jpg" alt="User">
+                </div>
+            </header>
+
+            <h1>Users</h1>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Role</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>John Doe</td>
+                        <td>john@example.com</td>
+                        <td>Admin</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Jane Smith</td>
+                        <td>jane@example.com</td>
+                        <td>User</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Sam Green</td>
+                        <td>sam@example.com</td>
+                        <td>Moderator</td>
+                    </tr>
+                </tbody>
+            </table>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

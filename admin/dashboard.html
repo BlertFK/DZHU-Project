@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="logo">Admin Dashboard</div>
+            <ul class="nav">
+                <li><a href="dashboard.html" class="active">Dashboard</a></li>
+                <li><a href="users.html">Users</a></li>
+                <li><a href="settings.html">Settings</a></li>
+                <li><a href="reports.html">Reports</a></li>
+            </ul>
+        </aside>
+
+        <main class="main-content">
+            <header class="header">
+                <button id="sidebarToggle" class="toggle-btn">&#9776;</button>
+                <div class="user">
+                    <span>Welcome, Admin!</span>
+                    <img src="assets/user.png" alt="User">
+                </div>
+            </header>
+
+            <h1>Dashboard</h1>
+            <div class="stats">
+                <div class="card">
+                    <h2>150</h2>
+                    <p>Active Users</p>
+                </div>
+                <div class="card">
+                    <h2>75</h2>
+                    <p>New Signups</p>
+                </div>
+                <div class="card">
+                    <h2>20</h2>
+                    <p>Pending Reports</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
