@@ -1,4 +1,19 @@
-<head>
+<?php
+include_once '../db/db.php'; 
+
+// Fetch the top 3 courses (modify the query if needed)
+$query = "SELECT courses.*, users.username AS instructor_name
+          FROM courses
+          JOIN users ON courses.created_by = users.id
+          ORDER BY courses.created_at DESC LIMIT 3";
+$stmt = $pdo->prepare($query);
+$stmt->execute();
+$courses = $stmt->fetchAll();
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>KnowHive - Home</title>
@@ -14,11 +29,12 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
     />
   </head>
- <?php
- include_once '../header/header.php' ;
- ?>
+  <body>
+    <?php
+    include_once '../header/header.php';
+    ?>
 
- <!-- Slider Section -->
+    <!-- Slider Section -->
     <div class="swiper-container main-slider loading">
       <div class="swiper-wrapper">
         <div class="swiper-slide">
@@ -33,7 +49,7 @@
             <p class="title">Our Products</p>
             <span class="caption"
               >"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua.</span
+              eiusmod tempor incididunt ut labore et dolore magna aliqua."</span
             >
           </div>
         </div>
@@ -48,7 +64,7 @@
             <p class="title">Quality</p>
             <span class="caption"
               >"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut</span
+              eiusmod tempor incididunt ut"</span
             >
           </div>
         </div>
@@ -63,7 +79,7 @@
             <p class="title">Created</p>
             <span class="caption"
               >"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua.</span
+              eiusmod tempor incididunt ut labore et dolore magna aliqua."</span
             >
           </div>
         </div>
@@ -84,7 +100,7 @@
       </div>
     </div>
 
-    <!-- introduction -->
+    <!-- Course Categories -->
     <div class="container">
       <h1 class="title-intro">Course Categories</h1>
       <p class="subtitle">
@@ -175,87 +191,42 @@
       </div>
     </div>
 
-    <!-- card for courses -->
+    <!-- Card for Courses -->
     <div class="course-container">
-      <div class="card">
-        <div class="card-header">
-          <img
-            src="https://c0.wallpaperflare.com/preview/483/210/436/car-green-4x4-jeep.jpg"
-            alt="rover"
-          />
-        </div>
-        <div class="card-body">
-          <span class="tag tag-teal">Technology</span>
-          <h4>Web Development</h4>
-          <p>Start your programming lessons now</p>
-          <div class="user">
+      <?php foreach ($courses as $course): ?>
+        <div class="card">
+          <div class="card-header">
             <img
-              src="https://yt3.ggpht.com/a/AGF-l7-0J1G0Ue0mcZMw-99kMeVuBmRxiPjyvIYONg=s900-c-k-c0xffffffff-no-rj-mo"
-              alt="user"
+              src="https://c0.wallpaperflare.com/preview/483/210/436/car-green-4x4-jeep.jpg"
+              alt="course image"
             />
-            <div class="user-info">
-              <h5>July Dec</h5>
-              <small>HTML & CSS</small>
+          </div>
+          <div class="card-body">
+            <span class="tag tag-teal"><?php echo htmlspecialchars($course['category']); ?></span>
+            <h4><?php echo htmlspecialchars($course['title']); ?></h4>
+            <p><?php echo htmlspecialchars($course['description']); ?></p>
+            <div class="user">
+              <img
+                src="https://randomuser.me/api/portraits/men/81.jpg" 
+                alt="instructor"
+              />
+              <div class="user-info">
+                <h5><?php echo htmlspecialchars($course['instructor_name']); ?></h5>
+                <small>Instructor</small>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <div class="card">
-        <div class="card-header">
-          <img
-            src="https://www.newsbtc.com/wp-content/uploads/2020/06/mesut-kaya-LcCdl__-kO0-unsplash-scaled.jpg"
-            alt="ballons"
-          />
-        </div>
-        <div class="card-body">
-          <span class="tag tag-purple">Javascript</span>
-          <h4>Learn the best Javascript Framework now</h4>
-          <p>
-            Do you know that React JS developers are the most paid developers
-            now ?
-          </p>
-          <div class="user">
-            <img
-              src="https://lh3.googleusercontent.com/ogw/ADGmqu8sn9zF15pW59JIYiLgx3PQ3EyZLFp5Zqao906l=s32-c-mo"
-              alt="user"
-            />
-            <div class="user-info">
-              <h5>Eyup Ucmaz</h5>
-              <small>React JS</small>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-header">
-          <img
-            src="https://images6.alphacoders.com/312/thumb-1920-312773.jpg"
-            alt="city"
-          />
-        </div>
-        <div class="card-body">
-          <span class="tag tag-pink">Design</span>
-          <h4>10 Rules of Dashboard Design</h4>
-          <p>Dashboard Design Guidelines</p>
-          <div class="user">
-            <img
-              src="https://people.com/thmb/gzHtG_UnZBsUuHVJx9xjB5yAfIQ=/4000x0/filters:no_upscale():max_bytes(150000):strip_icc():focal(399x0:401x2)/people-headshot-nick-maslow-f21ef38676504bc89a091ec9a5c95e4b.jpg"
-              alt="user"
-            />
-            <div class="user-info">
-              <h5>Carrie Brewer</h5>
-              <small>Figma</small>
-            </div>
-          </div>
-        </div>
-      </div>
+      <?php endforeach; ?>
     </div>
 
     <?php
- include_once '../header/footer.php' ;
- ?>
+    include_once '../header/footer.php';
+    ?>
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.7/js/swiper.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="../script.js"></script>
+  </body>
+</html>
