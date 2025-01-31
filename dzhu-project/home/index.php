@@ -195,12 +195,9 @@ $courses = $stmt->fetchAll();
     <div class="course-container">
       <?php foreach ($courses as $course): ?>
         <div class="card">
-          <div class="card-header">
-            <img
-              src="https://c0.wallpaperflare.com/preview/483/210/436/car-green-4x4-jeep.jpg"
-              alt="course image"
-            />
-          </div>
+        <div class="card-header">
+          <img src="../<?php echo $course['image_url'] ? $course['image_url'] : 'default.jpg'; ?>" alt="<?php echo $course['title']; ?>" />
+        </div>
           <div class="card-body">
             <span class="tag tag-teal"><?php echo htmlspecialchars($course['category']); ?></span>
             <h4><?php echo htmlspecialchars($course['title']); ?></h4>
