@@ -1,29 +1,38 @@
-document.getElementById('contact-form').addEventListener('submit', function(event) {
+document.getElementById('contact-form').addEventListener('submit', function (event) {
     event.preventDefault();
 
-    // Reset error message
-    document.getElementById('error-message').innerHTML = '';
+    let errorMessage = document.getElementById('error-message');
+    let successMessage = document.getElementById('success-message');
 
-    // Form input values
-    let name = document.getElementById('name').value;
-    let email = document.getElementById('email').value;
-    let subject = document.getElementById('subject').value;
-    let message = document.getElementById('message').value;
+    if (errorMessage) errorMessage.innerHTML = '';
+    if (successMessage) successMessage.innerHTML = '';
 
-    // Email validation
-    let emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
-    if (!emailPattern.test(email)) {
-        document.getElementById('error-message').innerHTML = 'Please enter a valid email address.';
-        return;
-    }
+    let name = document.getElementById('name').value.trim();
+    let email = document.getElementById('email').value.trim();
+    let subject = document.getElementById('subject').value.trim();
+    let message = document.getElementById('message').value.trim();
 
-    // Check for empty fields
     if (name === '' || email === '' || subject === '' || message === '') {
-        document.getElementById('error-message').innerHTML = 'All fields are required!';
+        errorMessage.innerHTML = 'All fields are required!';
         return;
     }
 
-    // If everything is valid
-    alert('Message sent successfully!');
-    document.getElementById('contact-form').reset(); // Reset the form
+    let formData = new FormData(this);
+
+    fetch('process.php', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.text())
+    .then(data => {
+        if (data.trim() === "success") {
+            document.getElementById('contact-form').reset();
+            successMessage.innerHTML = 'Message sent successfully!';
+        } else {
+            errorMessage.innerHTML = `Error: ${data}`;
+        }
+    })
+    .catch(error => {
+        errorMessage.innerHTML = 'An error occurred. Please try again.';
+    });
 });
